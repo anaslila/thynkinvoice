@@ -4,36 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thynk Invoice - Professional Invoice Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>📄</text></svg>">
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="https://i.postimg.cc/hv9r9JFW/thynk-1.png">
-    <link rel="shortcut icon" href="https://i.postimg.cc/hv9r9JFW/thynk-1.png">
-    
-    <!-- CSS -->
     <style>
         :root {
-            --primary-color: #2563eb;
+            --primary: #2563eb;
             --primary-dark: #1d4ed8;
-            --secondary-color: #64748b;
-            --success-color: #10b981;
-            --warning-color: #f59e0b;
-            --danger-color: #ef4444;
-            --background-color: #f8fafc;
             --white: #ffffff;
             --gray-50: #f9fafb;
             --gray-100: #f3f4f6;
-            --gray-200: #e5e7eb;
-            --gray-300: #d1d5db;
-            --gray-400: #9ca3af;
-            --gray-500: #6b7280;
             --gray-600: #4b5563;
-            --gray-700: #374151;
-            --gray-800: #1f2937;
             --gray-900: #111827;
-            --border-radius: 12px;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         * {
@@ -43,8 +25,8 @@
         }
         
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background-color: var(--background-color);
+            font-family: 'Inter', sans-serif;
+            background: var(--gray-50);
             color: var(--gray-900);
             line-height: 1.6;
         }
@@ -58,11 +40,11 @@
         /* Header */
         .header {
             background: var(--white);
-            box-shadow: var(--shadow);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
-            z-index: 100;
-            transition: var(--transition);
+            z-index: 1000;
+            transition: all 0.3s ease;
         }
         
         .nav {
@@ -70,6 +52,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 1rem 0;
+            flex-wrap: wrap;
         }
         
         .logo {
@@ -80,19 +63,22 @@
             color: var(--gray-900);
         }
         
-        .logo img {
+        .logo-icon {
             width: 40px;
             height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
         }
         
         .logo-text {
             font-size: 1.5rem;
             font-weight: 700;
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--primary);
         }
         
         .nav-menu {
@@ -100,20 +86,21 @@
             list-style: none;
             gap: 2rem;
             align-items: center;
+            flex-wrap: wrap;
         }
         
         .nav-item a {
             text-decoration: none;
             color: var(--gray-600);
             font-weight: 500;
-            transition: var(--transition);
             padding: 0.5rem 1rem;
             border-radius: 8px;
+            transition: all 0.3s ease;
         }
         
         .nav-item a:hover {
-            color: var(--primary-color);
-            background-color: var(--gray-50);
+            color: var(--primary);
+            background: var(--gray-50);
         }
         
         .btn {
@@ -122,39 +109,39 @@
             gap: 8px;
             padding: 0.75rem 1.5rem;
             border: none;
-            border-radius: var(--border-radius);
+            border-radius: 12px;
             font-weight: 600;
             text-decoration: none;
             cursor: pointer;
-            transition: var(--transition);
+            transition: all 0.3s ease;
             font-size: 0.875rem;
         }
         
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: var(--white);
-            box-shadow: var(--shadow);
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
         }
         
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
         }
         
         .btn-secondary {
             background: var(--white);
-            color: var(--gray-700);
-            border: 1px solid var(--gray-200);
+            color: var(--gray-600);
+            border: 1px solid var(--gray-100);
         }
         
         .btn-secondary:hover {
             background: var(--gray-50);
-            border-color: var(--gray-300);
+            transform: translateY(-1px);
         }
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: var(--white);
             padding: 5rem 0;
             text-align: center;
@@ -169,8 +156,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.03)" points="0,0 1000,300 1000,1000 0,700"/></svg>');
-            pointer-events: none;
+            background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.1) 0%, transparent 50%);
         }
         
         .hero-content {
@@ -182,10 +168,8 @@
             font-size: 3.5rem;
             font-weight: 800;
             margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, rgba(255,255,255,1), rgba(255,255,255,0.8));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
         }
         
         .hero p {
@@ -195,6 +179,7 @@
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            animation: fadeInUp 1s ease 0.2s forwards;
         }
         
         .hero-buttons {
@@ -202,9 +187,39 @@
             gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.4s forwards;
         }
         
-        /* Feature Cards */
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        /* Features Section */
         .features {
             padding: 5rem 0;
         }
@@ -230,7 +245,7 @@
         
         .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-bottom: 3rem;
         }
@@ -238,29 +253,34 @@
         .feature-card {
             background: var(--white);
             padding: 2rem;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            transition: var(--transition);
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
             border: 1px solid var(--gray-100);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .feature-card.animate {
+            animation: slideIn 0.6s ease forwards;
         }
         
         .feature-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary-color);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+            border-color: var(--primary);
         }
         
         .feature-icon {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-            border-radius: 12px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 1.5rem;
-            color: var(--white);
-            font-size: 1.5rem;
+            font-size: 1.8rem;
         }
         
         .feature-card h3 {
@@ -283,10 +303,10 @@
         
         .dashboard-container {
             background: var(--white);
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-lg);
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
             overflow: hidden;
-            border: 1px solid var(--gray-200);
+            border: 1px solid var(--gray-100);
         }
         
         .dashboard-header {
@@ -325,17 +345,23 @@
         }
         
         .stat-card {
-            background: var(--gray-50);
+            background: linear-gradient(135deg, var(--gray-50), var(--white));
             padding: 1.5rem;
-            border-radius: 8px;
+            border-radius: 12px;
             text-align: center;
-            border: 2px dashed var(--gray-200);
+            border: 2px dashed var(--gray-100);
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            animation: pulse 1s ease;
+            border-color: var(--primary);
         }
         
         .stat-number {
             font-size: 2rem;
             font-weight: 700;
-            color: var(--primary-color);
+            color: var(--primary);
             margin-bottom: 0.5rem;
         }
         
@@ -345,9 +371,9 @@
             font-weight: 500;
         }
         
-        /* Call to Action */
+        /* CTA Section */
         .cta {
-            background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
+            background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-600) 100%);
             color: var(--white);
             padding: 5rem 0;
             text-align: center;
@@ -368,7 +394,7 @@
         /* Footer */
         .footer {
             background: var(--white);
-            border-top: 1px solid var(--gray-200);
+            border-top: 1px solid var(--gray-100);
             padding: 3rem 0 2rem;
         }
         
@@ -396,35 +422,55 @@
         .footer-section ul li a {
             color: var(--gray-600);
             text-decoration: none;
-            transition: var(--transition);
+            transition: all 0.3s ease;
         }
         
         .footer-section ul li a:hover {
-            color: var(--primary-color);
+            color: var(--primary);
         }
         
         .footer-bottom {
-            border-top: 1px solid var(--gray-200);
+            border-top: 1px solid var(--gray-100);
             padding-top: 2rem;
             text-align: center;
             color: var(--gray-600);
             font-size: 0.875rem;
         }
         
-        /* Responsive */
+        /* Mobile Menu */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray-600);
+        }
+        
+        /* Responsive Design */
         @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+            
             .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
                 flex-direction: column;
-                gap: 1rem;
+                padding: 1rem;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            }
+            
+            .nav-menu.active {
+                display: flex;
             }
             
             .hero h1 {
                 font-size: 2.5rem;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
             }
             
             .feature-grid {
@@ -448,6 +494,11 @@
             .section-title h2 {
                 font-size: 2rem;
             }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
@@ -457,10 +508,11 @@
         <div class="container">
             <nav class="nav">
                 <a href="#" class="logo">
-                    <img src="https://i.postimg.cc/hv9r9JFW/thynk-1.png" alt="Thynk Logo">
+                    <div class="logo-icon">📄</div>
                     <span class="logo-text">Thynk Invoice</span>
                 </a>
-                <ul class="nav-menu">
+                <button class="mobile-toggle" onclick="toggleMenu()">☰</button>
+                <ul class="nav-menu" id="navMenu">
                     <li class="nav-item"><a href="#features">Features</a></li>
                     <li class="nav-item"><a href="#pricing">Pricing</a></li>
                     <li class="nav-item"><a href="#about">About</a></li>
@@ -479,8 +531,8 @@
                 <h1>Professional Invoice Management Made Simple</h1>
                 <p>Create, send, and track invoices with ease. Manage customers, products, and payments all in one powerful platform trusted by businesses worldwide.</p>
                 <div class="hero-buttons">
-                    <a href="#" class="btn btn-primary">Start Free Trial</a>
-                    <a href="#" class="btn btn-secondary">Watch Demo</a>
+                    <a href="#features" class="btn btn-primary">Start Free Trial</a>
+                    <a href="#features" class="btn btn-secondary">Watch Demo</a>
                 </div>
             </div>
         </div>
@@ -498,62 +550,62 @@
                 <div class="feature-card">
                     <div class="feature-icon">📄</div>
                     <h3>Professional Invoice Templates</h3>
-                    <p>Choose from beautiful, customizable templates that reflect your brand. Add your logo, colors, and custom fields to create professional invoices[3][4].</p>
+                    <p>Choose from beautiful, customizable templates that reflect your brand. Add your logo, colors, and custom fields to create professional invoices.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">🤖</div>
                     <h3>Automated Invoicing</h3>
-                    <p>Set up recurring invoices and automatic reminders. Save time with automated billing cycles and never miss a payment deadline[4][7].</p>
+                    <p>Set up recurring invoices and automatic reminders. Save time with automated billing cycles and never miss a payment deadline.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">👥</div>
                     <h3>Customer Management</h3>
-                    <p>Maintain detailed customer profiles with contact information, payment history, and custom notes. Import/export customer data easily[9][11].</p>
+                    <p>Maintain detailed customer profiles with contact information, payment history, and custom notes. Import/export customer data easily.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">📦</div>
                     <h3>Product & Inventory Management</h3>
-                    <p>Manage your product catalog with stock tracking, pricing tiers, and automatic inventory updates when invoices are created[9][17].</p>
+                    <p>Manage your product catalog with stock tracking, pricing tiers, and automatic inventory updates when invoices are created.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">💳</div>
                     <h3>Multiple Payment Options</h3>
-                    <p>Accept payments via credit cards, bank transfers, UPI, and more. Integrated payment gateways for faster transactions[4][6].</p>
+                    <p>Accept payments via credit cards, bank transfers, UPI, and more. Integrated payment gateways for faster transactions.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">📊</div>
                     <h3>Real-time Analytics</h3>
-                    <p>Track your business performance with detailed reports on sales, payments, customer behavior, and cash flow insights[6][7].</p>
+                    <p>Track your business performance with detailed reports on sales, payments, customer behavior, and cash flow insights.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">🌍</div>
                     <h3>Multi-Currency Support</h3>
-                    <p>Send invoices in multiple currencies and handle international transactions seamlessly with automatic exchange rate updates[5][13].</p>
+                    <p>Send invoices in multiple currencies and handle international transactions seamlessly with automatic exchange rate updates.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">📱</div>
                     <h3>Mobile Responsive</h3>
-                    <p>Access your invoicing system from anywhere with our mobile-optimized interface. Create and send invoices on the go[7][13].</p>
+                    <p>Access your invoicing system from anywhere with our mobile-optimized interface. Create and send invoices on the go.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">🔒</div>
                     <h3>Secure & Compliant</h3>
-                    <p>Bank-level security with encrypted data storage and automatic backups. Stay compliant with tax regulations and GST requirements[7][8].</p>
+                    <p>Bank-level security with encrypted data storage and automatic backups. Stay compliant with tax regulations and GST requirements.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Dashboard Preview -->
-    <section class="dashboard-preview">
+    <section class="dashboard-preview" id="dashboard">
         <div class="container">
             <div class="section-title">
                 <h2>Powerful Dashboard at Your Fingertips</h2>
@@ -571,25 +623,25 @@
                 </div>
                 <div class="dashboard-content">
                     <div class="dashboard-grid">
-                        <div class="stat-card">
-                            <div class="stat-number">₹2,45,670</div>
+                        <div class="stat-card" onclick="animateCard(this)">
+                            <div class="stat-number" data-target="245670">₹0</div>
                             <div class="stat-label">Total Revenue</div>
                         </div>
-                        <div class="stat-card">
-                            <div class="stat-number">156</div>
+                        <div class="stat-card" onclick="animateCard(this)">
+                            <div class="stat-number" data-target="156">0</div>
                             <div class="stat-label">Invoices Sent</div>
                         </div>
-                        <div class="stat-card">
-                            <div class="stat-number">89%</div>
+                        <div class="stat-card" onclick="animateCard(this)">
+                            <div class="stat-number" data-target="89">0%</div>
                             <div class="stat-label">Payment Rate</div>
                         </div>
-                        <div class="stat-card">
-                            <div class="stat-number">24</div>
+                        <div class="stat-card" onclick="animateCard(this)">
+                            <div class="stat-number" data-target="24">0</div>
                             <div class="stat-label">Active Customers</div>
                         </div>
                     </div>
                     <p style="text-align: center; color: var(--gray-600); font-style: italic;">
-                        Track everything from invoice status to payment analytics in real-time
+                        Click on any card to see live updates • Track everything in real-time
                     </p>
                 </div>
             </div>
@@ -597,23 +649,23 @@
     </section>
 
     <!-- Call to Action -->
-    <section class="cta">
+    <section class="cta" id="pricing">
         <div class="container">
             <h2>Ready to Streamline Your Invoicing?</h2>
             <p>Join thousands of businesses that trust Thynk Invoice for their billing needs. Start your free trial today!</p>
-            <a href="#" class="btn btn-primary">Get Started Free</a>
+            <a href="#" class="btn btn-primary" onclick="showSuccess()">Get Started Free</a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" id="about">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Product</h3>
                     <ul>
-                        <li><a href="#">Features</a></li>
-                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
                         <li><a href="#">Templates</a></li>
                         <li><a href="#">Integrations</a></li>
                         <li><a href="#">API Documentation</a></li>
@@ -622,11 +674,11 @@
                 <div class="footer-section">
                     <h3>Company</h3>
                     <ul>
-                        <li><a href="#">About Us</a></li>
+                        <li><a href="#about">About Us</a></li>
                         <li><a href="#">Careers</a></li>
                         <li><a href="#">Blog</a></li>
                         <li><a href="#">Press</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -639,7 +691,7 @@
                         <li><a href="#">Status Page</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
+                <div class="footer-section" id="contact">
                     <h3>Legal</h3>
                     <ul>
                         <li><a href="#">Privacy Policy</a></li>
@@ -656,9 +708,15 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Interactivity -->
+    <!-- JavaScript -->
     <script>
-        // Smooth scrolling for navigation links
+        // Mobile menu toggle
+        function toggleMenu() {
+            const menu = document.getElementById('navMenu');
+            menu.classList.toggle('active');
+        }
+
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -676,98 +734,120 @@
         window.addEventListener('scroll', () => {
             const header = document.querySelector('.header');
             if (window.scrollY > 100) {
-                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
                 header.style.backdropFilter = 'blur(10px)';
             } else {
-                header.style.backgroundColor = 'var(--white)';
+                header.style.background = 'var(--white)';
                 header.style.backdropFilter = 'none';
             }
         });
 
-        // Animated counter for dashboard stats
-        const animateCounters = () => {
-            const counters = document.querySelectorAll('.stat-number');
-            counters.forEach(counter => {
-                const target = counter.innerText.replace(/[^\d]/g, '');
-                const increment = target / 100;
-                let current = 0;
-                
-                const updateCounter = () => {
-                    if (current < target) {
-                        current += increment;
-                        if (counter.innerText.includes('₹')) {
-                            counter.innerText = '₹' + Math.ceil(current).toLocaleString();
-                        } else if (counter.innerText.includes('%')) {
-                            counter.innerText = Math.ceil(current) + '%';
-                        } else {
-                            counter.innerText = Math.ceil(current);
-                        }
-                        requestAnimationFrame(updateCounter);
-                    } else {
-                        counter.innerText = counter.innerText.includes('₹') ? 
-                            '₹' + target.toLocaleString() : 
-                            counter.innerText.includes('%') ? target + '%' : target;
-                    }
-                };
-                updateCounter();
-            });
-        };
-
-        // Intersection Observer for animations
+        // Animate feature cards on scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
+            entries.forEach((entry, index) => {
                 if (entry.isIntersecting) {
-                    if (entry.target.classList.contains('dashboard-preview')) {
-                        setTimeout(animateCounters, 500);
-                    }
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    setTimeout(() => {
+                        entry.target.classList.add('animate');
+                    }, index * 100);
                 }
             });
         }, observerOptions);
 
-        // Observe elements for animation
-        document.querySelectorAll('.feature-card, .dashboard-preview').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
+        // Observe feature cards
+        document.querySelectorAll('.feature-card').forEach(card => {
+            observer.observe(card);
         });
 
-        // Mobile menu toggle (if needed for responsive design)
-        const createMobileMenu = () => {
-            const nav = document.querySelector('.nav');
-            const menu = document.querySelector('.nav-menu');
-            
-            if (window.innerWidth <= 768) {
-                if (!document.querySelector('.mobile-toggle')) {
-                    const toggle = document.createElement('button');
-                    toggle.className = 'mobile-toggle';
-                    toggle.innerHTML = '☰';
-                    toggle.style.cssText = `
-                        background: none;
-                        border: none;
-                        font-size: 1.5rem;
-                        cursor: pointer;
-                        color: var(--gray-700);
-                    `;
-                    
-                    toggle.addEventListener('click', () => {
-                        menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
-                    });
-                    
-                    nav.appendChild(toggle);
+        // Animate counter function for dashboard
+        function animateCounter(element, target, prefix = '', suffix = '') {
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
                 }
-            }
-        };
+                element.textContent = prefix + Math.floor(current).toLocaleString() + suffix;
+            }, 20);
+        }
 
-        window.addEventListener('resize', createMobileMenu);
-        createMobileMenu();
+        // Click animation for stat cards
+        function animateCard(card) {
+            const numberElement = card.querySelector('.stat-number');
+            const target = parseInt(numberElement.dataset.target);
+            const isRevenue = numberElement.textContent.includes('₹');
+            const isPercentage = numberElement.textContent.includes('%');
+            
+            // Reset to 0
+            numberElement.textContent = isRevenue ? '₹0' : isPercentage ? '0%' : '0';
+            
+            // Animate
+            if (isRevenue) {
+                animateCounter(numberElement, target, '₹', '');
+            } else if (isPercentage) {
+                animateCounter(numberElement, target, '', '%');
+            } else {
+                animateCounter(numberElement, target);
+            }
+            
+            // Add pulse effect
+            card.style.animation = 'pulse 0.6s ease';
+            setTimeout(() => {
+                card.style.animation = '';
+            }, 600);
+        }
+
+        // Auto-animate counters when dashboard comes into view
+        const dashboardObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        document.querySelectorAll('.stat-card').forEach((card, index) => {
+                            setTimeout(() => animateCard(card), index * 200);
+                        });
+                    }, 500);
+                }
+            });
+        }, observerOptions);
+
+        dashboardObserver.observe(document.querySelector('.dashboard-preview'));
+
+        // Success message function
+        function showSuccess() {
+            alert('🎉 Welcome to Thynk Invoice! Your free trial is ready to start. Features include:\n\n✅ Unlimited Invoices\n✅ Customer Management\n✅ Payment Tracking\n✅ Real-time Analytics\n✅ Mobile Access\n\nCreated by Anas Lila✨ - Free Forever!');
+        }
+
+        // Add click events to buttons
+        document.querySelectorAll('.btn-primary').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                if (!btn.getAttribute('href') || btn.getAttribute('href') === '#') {
+                    e.preventDefault();
+                    showSuccess();
+                }
+            });
+        });
+
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add entrance animations
+            setTimeout(() => {
+                document.querySelector('.hero h1').style.opacity = '1';
+            }, 100);
+            
+            setTimeout(() => {
+                document.querySelector('.hero p').style.opacity = '1';
+            }, 300);
+            
+            setTimeout(() => {
+                document.querySelector('.hero-buttons').style.opacity = '1';
+            }, 500);
+        });
     </script>
 </body>
 </html>
